@@ -3,7 +3,8 @@ __author__ = 'Daniel'
 import random
 from math import ceil
 
-class Spielfeld(object):
+class Spielfeld():
+
     """
     Ist das gesamte Spielfeld und beinhaltet darber hinaus auch die zwei Hilfestellungen (oben und rechts vom Spielfeld)
     """
@@ -11,16 +12,16 @@ class Spielfeld(object):
     anzReihen = 15 #anzahl der Reihen
     anzSpalten = 15 #anzahl der Spalten
 
-    schwGrad = "medium" #schwierigkeitsgrad (entscheidet über anzFarbFelder)
+    schwGrad = "medium" #schwierigkeitsgrad (entscheidet Ã¼ber anzFarbFelder)
     anzFarbFelder = 0 #anzahl der felder, die farbig sind
-    anzFehlendeFelder = 0 #felder, die noch aufgedeckt werden müssen
+    anzFehlendeFelder = 0 #felder, die noch aufgedeckt werden mÃ¼ssen
 
     spielfeld = [] #spielfeld selber
 
     hilfeOben = None #hilfestellung (zahlen) oben
     hilfeRechts = None #hilfestellung (zahlen) rechts
 
-    aktElement = 0 #fuer iteration über spielfeld
+    aktElement = 0 #fuer iteration Ã¼ber spielfeld
 
     def __init__(self):
         #fuellen des spielfelds mit lauter 0en
@@ -54,7 +55,7 @@ class Spielfeld(object):
 
     def neuAnordnen(self):
         """
-        Spielfeld wird neu mit 1en gefüllt
+        Spielfeld wird neu mit 1en gefÃ¼llt
         :return: -
         """
 
@@ -65,13 +66,13 @@ class Spielfeld(object):
         while self.anzFehlendeFelder < self.anzFarbFelder:
             for i in range(self.anzReihen):
                 for j in range(self.anzSpalten):
-                    #Nur wenn aktuelles Feld nicht farbig ist und noch nicht genügend Felder farbig sind
+                    #Nur wenn aktuelles Feld nicht farbig ist und noch nicht genÃ¼gend Felder farbig sind
                     if self.spielfeld[i][j] is 0 and self.anzFehlendeFelder < self.anzFarbFelder:
                         #Random, ob null (keine Farbe) oder eins (Farbe)
                         wahl = random.randint(0,1)
                         #zuweisung
                         self.spielfeld[i][j] = wahl
-                        #Falls eins wird anzFehlendeFelder zugezählt
+                        #Falls eins wird anzFehlendeFelder zugezÃ¤hlt
                         if wahl is 1:
                             self.anzFehlendeFelder += 1
 
@@ -92,7 +93,7 @@ class Spielfeld(object):
 
     def __next__(self):
         """
-        Gibt immer nächste Reihe des Spielfelds zurück
+        Gibt immer nÃ¤chste Reihe des Spielfelds zurÃ¼ck
         :return:
         """
         if self.aktElement >= self.anzReihen:
@@ -103,6 +104,9 @@ class Spielfeld(object):
 
     def __getitem__(self, key):
         return self.spielfeld[key]
+
+    def getFehlendeFelder(self):
+       return self.anzFehlendeFelder
 
 class Hilfestellung(object):
 
@@ -123,12 +127,12 @@ class Hilfestellung(object):
 
         #Falls Hilfestellung oben platziert ist
         if art is "oben":
-            self.anzSpalten = self.spielfeld.anzSpalten #übernehmen der anzahl der spalten
+            self.anzSpalten = self.spielfeld.anzSpalten #Ã¼bernehmen der anzahl der spalten
             self.anzReihen = ceil(self.spielfeld.anzReihen/2.0); #nach formel n/2 +1
 
         #Falls Hilfestellung rechts platziert ist
         elif art is "rechts":
-            self.anzReihen = self.spielfeld.anzReihen #übernehmen der anzahl der reihen
+            self.anzReihen = self.spielfeld.anzReihen #Ã¼bernehmen der anzahl der reihen
             self.anzSpalten = ceil(self.spielfeld.anzSpalten/2.0); #nach fromel n/2 +1
 
         #fuellen des spielfelds mit lauter 0en
@@ -155,24 +159,24 @@ class Hilfestellung(object):
 
                     if vorherigesWar0 is True: #falls vorheriges eine 0 war
                         if current is 0: #falls dieses wieder 0 ist
-                            continue #nächstes feld
+                            continue #nÃ¤chstes feld
                         elif current is 1: #falls dieses 1 (farbig)
                             aktAnzFarbige += 1
                             vorherigesWar0 = False
                             if letztesFeld is True: #wenns das letzte Feld ist, dann reinschreiben
                                 self.hilfestellung[aktHSFeld][spalte] = aktAnzFarbige #aktuelles feld im hs raster bekommt aktuelle anzahl der farbigen
-                                aktAnzFarbige = 0 #zurücksetzen von den aktuellem wert
+                                aktAnzFarbige = 0 #zurÃ¼cksetzen von den aktuellem wert
                     elif vorherigesWar0 is False:
                         if current is 0:
                             self.hilfestellung[aktHSFeld][spalte] = aktAnzFarbige #aktuelles feld im hs raster bekommt aktuelle anzahl der farbigen
-                            aktAnzFarbige = 0 #zurücksetzen von den aktuellem wert
-                            aktHSFeld += 1 #eins weiter zählen in hs raster
+                            aktAnzFarbige = 0 #zurÃ¼cksetzen von den aktuellem wert
+                            aktHSFeld += 1 #eins weiter zÃ¤hlen in hs raster
                             vorherigesWar0 = True
                         elif current is 1:
                             aktAnzFarbige += 1
                             if letztesFeld is True: #wenns das letzte Feld ist, dann reinschreiben
                                 self.hilfestellung[aktHSFeld][spalte] = aktAnzFarbige #aktuelles feld im hs raster bekommt aktuelle anzahl der farbigen
-                                aktAnzFarbige = 0 #zurücksetzen von den aktuellem wert
+                                aktAnzFarbige = 0 #zurÃ¼cksetzen von den aktuellem wert
 
             self.hilfestellung.reverse() #umdrehen, weil hilfestellung umgedreht ist im Spiel (beginnt von unten)
 
@@ -192,24 +196,24 @@ class Hilfestellung(object):
 
                     if vorherigesWar0 is True: #falls vorheriges eine 0 war
                         if current is 0: #falls dieses wieder 0 ist
-                            continue #nächstes feld
+                            continue #nÃ¤chstes feld
                         elif current is 1: #falls dieses 1 (farbig)
                             aktAnzFarbige += 1
                             vorherigesWar0 = False
                             if letztesFeld is True: #wenns das letzte Feld ist, dann reinschreiben
                                 self.hilfestellung[reihe][aktHSFeld] = aktAnzFarbige #aktuelles feld im hs raster bekommt aktuelle anzahl der farbigen
-                                aktAnzFarbige = 0 #zurücksetzen von den aktuellem wert
+                                aktAnzFarbige = 0 #zurÃ¼cksetzen von den aktuellem wert
                     elif vorherigesWar0 is False:
                         if current is 0:
                             self.hilfestellung[reihe][aktHSFeld] = aktAnzFarbige #aktuelles feld im hs raster bekommt aktuelle anzahl der farbigen
-                            aktAnzFarbige = 0 #zurücksetzen von den aktuellem wert
-                            aktHSFeld += 1 #eins weiter zählen in hs raster
+                            aktAnzFarbige = 0 #zurÃ¼cksetzen von den aktuellem wert
+                            aktHSFeld += 1 #eins weiter zÃ¤hlen in hs raster
                             vorherigesWar0 = True
                         elif current is 1:
                             aktAnzFarbige += 1
                             if letztesFeld is True: #wenns das letzte Feld ist, dann reinschreiben
                                 self.hilfestellung[reihe][aktHSFeld] = aktAnzFarbige #aktuelles feld im hs raster bekommt aktuelle anzahl der farbigen
-                                aktAnzFarbige = 0 #zurücksetzen von den aktuellem wert
+                                aktAnzFarbige = 0 #zurÃ¼cksetzen von den aktuellem wert
 
 
 
@@ -224,7 +228,7 @@ class Hilfestellung(object):
 
     def __next__(self):
         """
-        Gibt immer nächste Reihe des Spielfelds zurück
+        Gibt immer nÃ¤chste Reihe des Spielfelds zurÃ¼ck
         :return:
         """
         if self.aktElement >= self.anzReihen:
@@ -245,11 +249,12 @@ class Hilfestellung(object):
             print(self.hilfestellung[i])
 
 
-
-a = Spielfeld()
+''''
+a = MyModel()
 print("--- Hilfestellung oben ---")
 a.hilfeOben.anzeigen();
 print("--- Spielfeld ---")
 a.anzeigen()
 print("--- Hilfestellung rechts")
 a.hilfeRechts.anzeigen();
+'''''
