@@ -1,8 +1,7 @@
 __author__ = 'Isabella'
 
-from View.View import MyView
-from Model.Model import Spielfeld
-from Model.Model import Hilfestellung
+from View import MyView
+from Model import Spielfeld, Hilfestellung
 import sys
 from PyQt5.QtWidgets import *
 
