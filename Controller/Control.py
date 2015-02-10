@@ -6,6 +6,7 @@ from Model.Model import Hilfestellung
 import sys
 from PyQt5.QtWidgets import *
 
+
 class Controller(QWidget):
 
     def __init__(self, parent=None):
@@ -14,49 +15,64 @@ class Controller(QWidget):
         self.view = MyView(self.model)
         self.view.setupUi(self)
 
+        self.view.schw.setCurrentIndex(1)
+        self.view.textOpenField.setText(str(self.model.get_anzFarbFelder()))
+
         self.view.neustart.clicked.connect(self.newGame)
         self.view.loesung.clicked.connect(self.Loesung)
         self.view.schw.activated.connect(self.getLevel)
-        self.view.textOpenField.setText(str(self.model.getFehlendeFelder()))
 
         self.showHelpOben()
-        #self.showHelpRechts()
+        self.showHelpRechts()
 
-    def newGame(self):
-        c.close()
-        c.show()
-
-    def Loesung(self):
-        print("Loesung")
 
     def getLevel(self):
-        if self.view.schw.currentText() is "Easy":
-            self.model.schwGrad = "easy"
-            self.view.schw.setCurrentText(self,"Easy")
-        elif self.view.schw.currentText() is "Medium":
-             self.model.anzFarbFelderFestlegen("Medium")
-             self.view.schw.setCurrentText(self,"Medium")
-        elif self.view.schw.currentText() is "Hard":
-             self.model.anzFarbFelderFestlegen("Hard")
-             self.view.schw.setCurrentText(self,"Hard")
-        elif self.view.schw.currentText() is "Expert":
-             self.model.anzFarbFelderFestlegen("Expert")
-             self.view.schw.setCurrentText(self,"Expert")
-        elif self.view.schw.currentText() is "Impossible":
-            self.model.anzFarbFelderFestlegen("Impossible")
-            self.view.schw.setCurrentText(self,"Impossible")
+        if self.view.schw.currentIndex() is 0:
+            self.level = 0
+            self.schw = "easy"
+            self.newGame(self.level,self.schw)
+        elif self.view.schw.currentIndex() is 1:
+            self.level = 1
+            self.schw = "easy"
+            self.newGame(self.level,self.schw)
+        elif self.view.schw.currentIndex() is 2:
+            self.level = 2
+            self.schw = "easy"
+            self.newGame(self.level,self.schw)
+        elif self.view.schw.currentIndex() is 3:
+            self.level = 3
+            self.schw = "easy"
+            self.newGame(self.level,self.schw)
+        elif self.view.schw.currentIndex() is 4:
+            self.level = 4
+            self.schw = "easy"
+            self.newGame(self.level,self.schw)
+
+
+    def newGame(self,level,schw):
+        #Spiel neu generieren
+        self.model.set_schw(schw)
+        self.view.schw.setCurrentIndex(level)
+        self.view.textOpenField.setText(str(self.model.get_anzFarbFelder()))
 
     def showHelpOben(self):
-        #print(len(self.model.hilfeOben.hilfestellung))
-        #print(self.view.textEdit_oben.setText("1"))
         for i in range(len(self.model.hilfeOben.hilfestellung)):
             for j in range(len(self.model.hilfeOben.hilfestellung[i])):
                 self.view.textEdit_oben_alle[i][j].setText(str(self.model.hilfeOben.hilfestellung[i][j]))
 
     def showHelpRechts(self):
-        #print(len(self.model.hilfeOben.hilfestellung))
         for i in range(len(self.model.hilfeRechts.hilfestellung)):
-            self.view.textEdit_oben.setText(str(self.model.hilfeRechts.hilfestellung[i]))
+            for j in range(len(self.model.hilfeRechts.hilfestellung[i])):
+                self.view.textEdit_rechts_alle[i][j].setText(str(self.model.hilfeRechts.hilfestellung[i][j]))
+
+    def Loesung(self):
+        for i in range(self.model.anzReihen):
+            for j in range(self.model.anzSpalten):
+                if str(self.model.spielfeld[i][j]) == "1":
+                    self.view.button[i][j].setText("1")
+                else:
+                    self.view.button[i][j].setText("0")
+    
 
     def __iter__(self):
         """
@@ -64,8 +80,6 @@ class Controller(QWidget):
         :return:
         """
         return self
-
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

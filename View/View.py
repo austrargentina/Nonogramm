@@ -81,13 +81,17 @@ class MyView(object):
         self.gridspielfeld.setContentsMargins(0, 0, 0, 0)
         self.gridspielfeld.setObjectName("gridspielfeld")
 
-        for i in range(15):
-            for j in range(15):
-                self.button = QtWidgets.QPushButton(self.gridLayoutWidget_3)
-                self.button.setMaximumSize(QtCore.QSize(30, 30))
-                self.button.setText("")
-                self.button.setObjectName("button"+str(i))
-                self.gridspielfeld.addWidget(self.button, i, j, 1, 1)
+        self.button = []
+
+
+
+        for i in range(self.model.anzReihen):
+            self.button.append([])
+            for j in range(self.model.anzSpalten):
+                self.button[i].append(QtWidgets.QPushButton(self.gridLayoutWidget_3))
+                self.button[i][j].setMaximumSize(QtCore.QSize(30, 30))
+                self.button[i][j].setObjectName("button")
+                self.gridspielfeld.addWidget(self.button[i][j], i, j, 1, 1)
 
         self.gridLayoutWidget = QtWidgets.QWidget(Dialog)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(560, 250, 321, 491))
@@ -96,13 +100,17 @@ class MyView(object):
         self.gridlinks.setContentsMargins(0, 0, 0, 0)
         self.gridlinks.setObjectName("gridlinks")
 
-        for i in range(15):
-            for j in range(8):
-                self.textEdit_left = QtWidgets.QTextEdit(self.gridLayoutWidget)
-                self.textEdit_left.setEnabled(False)
-                self.textEdit_left.setMaximumSize(QtCore.QSize(30, 30))
-                self.textEdit_left.setObjectName("textEdit" + str(i))
-                self.gridlinks.addWidget(self.textEdit_left, i, j, 1, 1)
+
+        self.textEdit_rechts_alle = []
+
+        for i in range(len(self.model.hilfeRechts.hilfestellung)):
+            self.textEdit_rechts_alle.append([])
+            for j in range(len(self.model.hilfeRechts.hilfestellung[i])):
+                self.textEdit_rechts_alle[i].append(QtWidgets.QTextEdit(self.gridLayoutWidget_2))
+                self.textEdit_rechts_alle[i][j].setEnabled(False)
+                self.textEdit_rechts_alle[i][j].setMaximumSize(QtCore.QSize(30, 30))
+                self.textEdit_rechts_alle[i][j].setObjectName("textEdit_oben")
+                self.gridlinks.addWidget(self.textEdit_rechts_alle[i][j], i, j, 1, 1)
 
         self.retranslateUi(Dialog)
 
@@ -119,5 +127,3 @@ class MyView(object):
         self.schw.setItemText(3, _translate("Dialog", "Expert"))
         self.schw.setItemText(4, _translate("Dialog", "Impossible"))
         self.neustart.setText(_translate("Dialog", "Neustart"))
-
-

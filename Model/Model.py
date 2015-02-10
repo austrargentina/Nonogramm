@@ -45,13 +45,13 @@ class Spielfeld():
         if self.schwGrad is "easy":
             self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.888) #88% sind farbig
         elif self.schwGrad is "medium":
-            self.anzFarbFelder =  ceil(self.anzSpalten*self.anzReihen*0.666)    #66% sind farbig
+            self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.666)    #66% sind farbig
         elif self.schwGrad is "hard":
-            self.anzFarbFelder =  ceil(self.anzSpalten*self.anzReihen*0.555) #55% sind farbig
+            self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.555) #55% sind farbig
         elif self.schwGrad is "expert":
-            self.anzFarbFelder =  ceil(self.anzSpalten*self.anzReihen*0.4)  #40% sind farbig
+            self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.4)  #40% sind farbig
         elif self.schwGrad is "impossible":
-            self.anzFarbFelder =  ceil(self.anzSpalten*self.anzReihen*0.222) #22% sind farbig
+            self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.222) #22% sind farbig
 
     def neuAnordnen(self):
         """
@@ -105,8 +105,14 @@ class Spielfeld():
     def __getitem__(self, key):
         return self.spielfeld[key]
 
-    def getFehlendeFelder(self):
-       return self.anzFehlendeFelder
+    def get_anzFarbFelder(self):
+       return self.anzFarbFelder
+
+    def get_schw(self):
+        return self.schw
+
+    def set_schw(self,schw):
+        self.schw = schw
 
 class Hilfestellung(object):
 
@@ -249,12 +255,11 @@ class Hilfestellung(object):
             print(self.hilfestellung[i])
 
 
-''''
-a = MyModel()
+"""
+a = Spielfeld()
 print("--- Hilfestellung oben ---")
 a.hilfeOben.anzeigen();
 print("--- Spielfeld ---")
 a.anzeigen()
 print("--- Hilfestellung rechts")
-a.hilfeRechts.anzeigen();
-'''''
+a.hilfeRechts.anzeigen();"""
