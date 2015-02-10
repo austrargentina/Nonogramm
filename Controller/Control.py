@@ -22,9 +22,15 @@ class Controller(QWidget):
         self.view.loesung.clicked.connect(self.Loesung)
         self.view.schw.activated.connect(self.getLevel)
 
+        self.buttonreg()
+
         self.showHelpOben()
         self.showHelpRechts()
 
+    def buttonreg(self):
+        for i in range(self.model.anzReihen):
+            for j in range(self.model.anzSpalten):
+                self.view.button[i][j].clicked.connect(self.buttonClicked)
 
     def getLevel(self):
         if self.view.schw.currentIndex() is 0:
@@ -72,7 +78,12 @@ class Controller(QWidget):
                     self.view.button[i][j].setText("1")
                 else:
                     self.view.button[i][j].setText("0")
-    
+
+    def buttonClicked(self):
+        print("Gedrückt :D")
+
+
+
 
     def __iter__(self):
         """
