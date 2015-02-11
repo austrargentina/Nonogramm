@@ -3,6 +3,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class MyView(object):
 
+    """
+
+    """
+
     def __init__(self, model):
         self.model = model
 
@@ -12,7 +16,6 @@ class MyView(object):
         Dialog.setWindowTitle("Nonogram")
         Dialog.resize(900, 800)
         Dialog.setMaximumSize(QtCore.QSize(900, 800))
-        #Dialog.setMiniumSize(QtCore.QSize(700,600))
 
         self.horizontalLayoutWidget = QtWidgets.QWidget(Dialog)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(20, 750, 881, 41))
@@ -90,7 +93,7 @@ class MyView(object):
                 self.button[i].append(QtWidgets.QPushButton(self.gridLayoutWidget_3))
                 self.button[i][j].setMaximumSize(QtCore.QSize(30, 30))
                 self.button[i][j].setObjectName(str(i) + str(j))
-                self.button[i][j].setStyleSheet("QPushButton {background-color: yellow}")
+                self.button[i][j].setStyleSheet("QPushButton {background-color: darkgrey}")
                 self.button[i][j].x = i
                 self.button[i][j].y = j
                 self.button[i][j].aktiviert = False
