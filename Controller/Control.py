@@ -35,30 +35,31 @@ class Controller(QWidget):
         if self.view.schw.currentIndex() is 0:
             self.level = 0
             self.schw = "easy"
-            self.newGame(self.level,self.schw)
+            #self.newGame(self.level,self.schw)
         elif self.view.schw.currentIndex() is 1:
             self.level = 1
-            self.schw = "easy"
-            self.newGame(self.level,self.schw)
+            self.schw = "medium"
+            #self.newGame(self.level,self.schw)
         elif self.view.schw.currentIndex() is 2:
             self.level = 2
-            self.schw = "easy"
-            self.newGame(self.level,self.schw)
+            self.schw = "hard"
+            #self.newGame(self.level,self.schw)
         elif self.view.schw.currentIndex() is 3:
             self.level = 3
-            self.schw = "easy"
-            self.newGame(self.level,self.schw)
+            self.schw = "expert"
+            #self.newGame(self.level,self.schw)
         elif self.view.schw.currentIndex() is 4:
             self.level = 4
-            self.schw = "easy"
-            self.newGame(self.level,self.schw)
+            self.schw = "impossible"
+            #self.newGame(self.level,self.schw)
 
 
-    def newGame(self,level,schw):
+    def newGame(self):
         #Spiel neu generieren
-        self.model.set_schw(schw)
-        self.view.schw.setCurrentIndex(level)
-        self.view.textOpenField.setText(str(self.model.get_anzFarbFelder()))
+        self.model.set_schw(self.schw)
+        self.view.schw.setCurrentIndex(self.level) #Anzeigen des SCwhierigkeitsgrads in der Combobox
+        self.model.neuAnordnen()    #Anordnen des Feldes
+        self.view.textOpenField.setText(str(self.model.get_anzFarbFelder())) #Anzahl der fehlenden anzeigen
 
     def showHelpOben(self):
         for i in range(len(self.model.hilfeOben.hilfestellung)):
