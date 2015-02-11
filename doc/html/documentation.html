@@ -54,10 +54,94 @@
 <dt id="Controller.Control.Controller">
 <em class="property">class </em><code class="descclassname">Controller.Control.</code><code class="descname">Controller</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
+<dt id="Controller.Control.Controller.Loesung">
+<code class="descname">Loesung</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller.Loesung" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anfuellen des Spielfelds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="Controller.Control.Controller.__iter__">
 <code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Zeigt, dass Objekt iterable ist
 :return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Controller.Control.Controller.buttonreg">
+<code class="descname">buttonreg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller.buttonreg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anfuellen des Spielfelds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Controller.Control.Controller.getLevel">
+<code class="descname">getLevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller.getLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anfuellen des Spielfelds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Controller.Control.Controller.newGame">
+<code class="descname">newGame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller.newGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anfuellen des Spielfelds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Controller.Control.Controller.showHelpOben">
+<code class="descname">showHelpOben</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller.showHelpOben" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anfuellen des Spielfelds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Controller.Control.Controller.showHelpRechts">
+<code class="descname">showHelpRechts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller.showHelpRechts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anfuellen des Spielfelds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -70,17 +154,61 @@
 <em class="property">class </em><code class="descclassname">Model.</code><code class="descname">Spielfeld</code><a class="headerlink" href="#Model.Spielfeld" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ist das gesamte Spielfeld und beinhaltet darber hinaus auch die zwei Hilfestellungen (oben und rechts vom Spielfeld)</p>
 <dl class="method">
+<dt id="Model.Spielfeld.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt die Reihe des Spielfelds an der Stelle [key] zurueck</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; Reihe des Spielfelds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Reihe an der Stelle [key]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Anfuellen des Spielfelds und erstellen der Hilfestellungen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="Model.Spielfeld.__iter__">
 <code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.__iter__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Zeigt, dass Objekt iterable ist
-:return:</p>
+<dd><p>Zeigt, dass das Objekt iterable ist</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Das Spielfeld selbst</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="Model.Spielfeld.__next__">
 <code class="descname">__next__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.__next__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gibt immer nÃ¤chste Reihe des Spielfelds zurÃ¼ck
-:return:</p>
+<dd><p>Gibt immer naechste Reihe des Spielfelds zurueck</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Nächste Reihe</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -106,15 +234,87 @@
 <dl class="method">
 <dt id="Model.Spielfeld.anzeigen">
 <code class="descname">anzeigen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.anzeigen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gibt das Spielfeld in der Konsole aus
-:return: -</p>
+<dd><p>Gibt das Spielfeld in der Konsole aus</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.get_anzFarbFelder">
+<code class="descname">get_anzFarbFelder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.get_anzFarbFelder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt die Anzahl der Farbfelder, die noch fehlen zurueck</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">anzFarbFelder</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.get_schwGrad">
+<code class="descname">get_schwGrad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.get_schwGrad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt den Schwierigkeitsgrad zurueck</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">schwGrad</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.hilfeErstellen">
+<code class="descname">hilfeErstellen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.hilfeErstellen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hilfestellungen (rechts und links) erstellen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="Model.Spielfeld.neuAnordnen">
 <code class="descname">neuAnordnen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.neuAnordnen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Spielfeld wird neu mit 1en gefÃ¼llt
-:return: -</p>
+<dd><p>Spielfeld wird neu befüllt, abhängig vom Schwierigkeitsgrad</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.set_schw">
+<code class="descname">set_schw</code><span class="sig-paren">(</span><em>schwGrad</em><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.set_schw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setzt den Schwierigkeitsgrad</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>schwGrad</strong> &#8211; Schwierigkeitsgrad (easy/medium/hard/expert/impossible)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -123,17 +323,68 @@
 <dt id="Model.Hilfestellung">
 <em class="property">class </em><code class="descclassname">Model.</code><code class="descname">Hilfestellung</code><span class="sig-paren">(</span><em>spielfeld</em>, <em>art</em><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
+<dt id="Model.Hilfestellung.__getitem__">
+<code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt die Reihe der Hilfestellung an der Stelle [key] zurueck</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; Reihe die zurueckgegeben werden soll</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Reihe an der Stelle [key]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Hilfestellung.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>spielfeld</em>, <em>art</em><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Berechnet die Eintraege der Hiflestellung</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>spielfeld</strong> &#8211; Spielfeld, zu welchem die Hilfestellung erstellt werden soll</li>
+<li><strong>art</strong> &#8211; [oben,rechts] Ob rechte oder obrige Hilfestellung</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Kein return</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="Model.Hilfestellung.__iter__">
 <code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.__iter__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Zeigt, dass Objekt iterable ist
-:return:</p>
+<dd><p>Zeigt, dass Objekt iterable ist</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Die Hilfestellung selbst</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="Model.Hilfestellung.__next__">
 <code class="descname">__next__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.__next__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gibt immer nÃ¤chste Reihe des Spielfelds zurÃ¼ck
-:return:</p>
+<dd><p>Gibt immer die naechste Reihe der Hilfestellung zurueck</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Naechste Reihe</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -145,8 +396,29 @@
 <dl class="method">
 <dt id="Model.Hilfestellung.anzeigen">
 <code class="descname">anzeigen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.anzeigen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gibt die Hilfestellung in der Konsole aus
-:return: -</p>
+<dd><p>Gibt die Hilfestellung in der Konsole aus</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Hilfestellung.neuBerechnen">
+<code class="descname">neuBerechnen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.neuBerechnen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Berechnet die einzelnen Felder der Hilfestellung</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein return</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

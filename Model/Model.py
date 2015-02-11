@@ -25,7 +25,8 @@ class Spielfeld(object):
 
     def __init__(self):
         """
-        Anfuellen des Spielfelds
+        Anfuellen des Spielfelds und erstellen der Hilfestellungen
+
         :return: Kein return
         """
         #fuellen des spielfelds mit lauter 0en
@@ -57,17 +58,18 @@ class Spielfeld(object):
         elif self.schwGrad is "impossible":
             self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.222) #22% sind farbig
         else:
-            print("Error")
+            print("Not a valid Schwierigkeitsgrad set")
 
     def neuAnordnen(self):
         """
-        Spielfeld wird neu mit 1en gefÃ¼llt
-        :return: -
+        Spielfeld wird neu befüllt, abhängig vom Schwierigkeitsgrad
+
+        :return: Kein return
         """
 
-        self.anzFarbFelderFestlegen()
+        self.anzFarbFelderFestlegen() #festlegen der farbfelder, die gefuellt werden muessen
 
-        self.anzFehlendeFelder = 0
+        self.anzFehlendeFelder = 0 #damit while funktioniert
 
         #Fuellen des Spielfelds mit Nullen
         for i in range(self.anzReihen):
@@ -87,31 +89,38 @@ class Spielfeld(object):
                         if wahl is 1:
                             self.anzFehlendeFelder += 1
 
-        pass
 
     def hilfeErstellen(self):
+        """
+        Hilfestellungen (rechts und links) erstellen
+
+        :return: Kein return
+        """
         self.hilfeOben = Hilfestellung(self, "oben")
         self.hilfeRechts = Hilfestellung(self, "rechts")
 
     def anzeigen(self):
         """
         Gibt das Spielfeld in der Konsole aus
-        :return: -
+
+        :return: Kein return
         """
         for i in range(self.anzReihen):
             print(self.spielfeld[i])
 
     def __iter__(self):
         """
-        Zeigt, dass Objekt iterable ist
-        :return:
+        Zeigt, dass das Objekt iterable ist
+
+        :return: Das Spielfeld selbst
         """
         return self
 
     def __next__(self):
         """
-        Gibt immer nÃ¤chste Reihe des Spielfelds zurÃ¼ck
-        :return:
+        Gibt immer naechste Reihe des Spielfelds zurueck
+
+        :return: Nächste Reihe
         """
         if self.aktElement >= self.anzReihen:
             raise StopIteration
@@ -120,15 +129,37 @@ class Spielfeld(object):
             return self.spielfeld[self.aktElement - 1]
 
     def __getitem__(self, key):
+        """
+        Gibt die Reihe des Spielfelds an der Stelle [key] zurueck
+
+        :param key: Reihe des Spielfelds
+        :return: Reihe an der Stelle [key]
+        """
         return self.spielfeld[key]
 
     def get_anzFarbFelder(self):
-       return self.anzFarbFelder
+        """
+        Gibt die Anzahl der Farbfelder, die noch fehlen zurueck
+
+        :return: anzFarbFelder
+        """
+        return self.anzFarbFelder
 
     def get_schwGrad(self):
+        """
+        Gibt den Schwierigkeitsgrad zurueck
+
+        :return: schwGrad
+        """
         return self.schwGrad
 
     def set_schw(self,schwGrad):
+        """
+        Setzt den Schwierigkeitsgrad
+
+        :param schwGrad: Schwierigkeitsgrad (easy/medium/hard/expert/impossible)
+        :return: Kein return
+        """
         self.schwGrad = schwGrad
 
 class Hilfestellung(object):
@@ -144,6 +175,13 @@ class Hilfestellung(object):
 
 
     def __init__(self, spielfeld, art):
+        """
+        Berechnet die Eintraege der Hiflestellung
+
+        :param spielfeld: Spielfeld, zu welchem die Hilfestellung erstellt werden soll
+        :param art: [oben,rechts] Ob rechte oder obrige Hilfestellung
+        :return: Kein return
+        """
         self.spielfeld = spielfeld
         self.art = art
         self.hilfestellung = []
@@ -158,7 +196,7 @@ class Hilfestellung(object):
             self.anzReihen = self.spielfeld.anzReihen #Ã¼bernehmen der anzahl der reihen
             self.anzSpalten = ceil(self.spielfeld.anzSpalten/2.0); #nach fromel n/2 +1
 
-        #fuellen des spielfelds mit lauter 0en
+        #fuellen des Hilfestellung mit lauter 0en
         for i in range(self.anzReihen):
                 self.hilfestellung.append([])
                 for j in range(self.anzSpalten):
@@ -167,6 +205,11 @@ class Hilfestellung(object):
         self.neuBerechnen()
 
     def neuBerechnen(self):
+        """
+        Berechnet die einzelnen Felder der Hilfestellung
+
+        :return: Kein return
+        """
         if self.art is "oben":
             for spalte in range(self.spielfeld.anzSpalten):
                 vorherigesWar0 = True #war das vorherige eine 0
@@ -238,21 +281,19 @@ class Hilfestellung(object):
                                 self.hilfestellung[reihe][aktHSFeld] = aktAnzFarbige #aktuelles feld im hs raster bekommt aktuelle anzahl der farbigen
                                 aktAnzFarbige = 0 #zurÃ¼cksetzen von den aktuellem wert
 
-
-
-
-
     def __iter__(self):
         """
         Zeigt, dass Objekt iterable ist
-        :return:
+
+        :return: Die Hilfestellung selbst
         """
         return self
 
     def __next__(self):
         """
-        Gibt immer nÃ¤chste Reihe des Spielfelds zurÃ¼ck
-        :return:
+        Gibt immer die naechste Reihe der Hilfestellung zurueck
+
+        :return: Naechste Reihe
         """
         if self.aktElement >= self.anzReihen:
             raise StopIteration
@@ -261,12 +302,19 @@ class Hilfestellung(object):
             return self.hilfestellung[self.aktElement - 1]
 
     def __getitem__(self, key):
+        """
+        Gibt die Reihe der Hilfestellung an der Stelle [key] zurueck
+
+        :param key: Reihe die zurueckgegeben werden soll
+        :return: Reihe an der Stelle [key]
+        """
         return self.hilfestellung[key]
 
     def anzeigen(self):
         """
         Gibt die Hilfestellung in der Konsole aus
-        :return: -
+
+        :return: Kein return
         """
         for i in range(self.anzReihen):
             print(self.hilfestellung[i])
