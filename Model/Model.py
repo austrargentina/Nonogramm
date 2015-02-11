@@ -38,8 +38,7 @@ class Spielfeld(object):
         self.neuAnordnen()
 
         #bereitstellen der hilfestellungen
-        self.hilfeOben = Hilfestellung(self, "oben")
-        self.hilfeRechts = Hilfestellung(self, "rechts")
+        self.hilfeErstellen()
 
     def anzFarbFelderFestlegen(self):
         """
@@ -57,6 +56,8 @@ class Spielfeld(object):
             self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.4)  #40% sind farbig
         elif self.schwGrad is "impossible":
             self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.222) #22% sind farbig
+        else:
+            print("Error")
 
     def neuAnordnen(self):
         """
@@ -67,6 +68,11 @@ class Spielfeld(object):
         self.anzFarbFelderFestlegen()
 
         self.anzFehlendeFelder = 0
+
+        #Fuellen des Spielfelds mit Nullen
+        for i in range(self.anzReihen):
+            for j in range(self.anzSpalten):
+                self.spielfeld[i][j] = 0
 
         while self.anzFehlendeFelder < self.anzFarbFelder:
             for i in range(self.anzReihen):
@@ -80,6 +86,12 @@ class Spielfeld(object):
                         #Falls eins wird anzFehlendeFelder zugezÃ¤hlt
                         if wahl is 1:
                             self.anzFehlendeFelder += 1
+
+        pass
+
+    def hilfeErstellen(self):
+        self.hilfeOben = Hilfestellung(self, "oben")
+        self.hilfeRechts = Hilfestellung(self, "rechts")
 
     def anzeigen(self):
         """
@@ -113,11 +125,11 @@ class Spielfeld(object):
     def get_anzFarbFelder(self):
        return self.anzFarbFelder
 
-    def get_schw(self):
-        return self.schw
+    def get_schwGrad(self):
+        return self.schwGrad
 
-    def set_schw(self,schw):
-        self.schw = schw
+    def set_schw(self,schwGrad):
+        self.schwGrad = schwGrad
 
 class Hilfestellung(object):
 

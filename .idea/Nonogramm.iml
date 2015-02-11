@@ -6,7 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Model" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/View" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.4.1 (C:\Program Files (x86)\Python\python.exe)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.4.2 (C:\Python34\python.exe)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="ReSTService">
@@ -14,3 +14,4 @@
     <option name="DOC_DIR" value="$MODULE_DIR$" />
   </component>
 </module>
+

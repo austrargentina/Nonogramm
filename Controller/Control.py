@@ -1,12 +1,16 @@
 __author__ = 'Isabella'
 
-from View import MyView
-from Model import Spielfeld, Hilfestellung
+from View.View import MyView
+from Model.Model import Spielfeld, Hilfestellung
+#from View import MyView
+#from Model import Spielfeld, Hilfestellung
 import sys
 from PyQt5.QtWidgets import *
 
 
-class Controller(QWidget):
+class Controller(QWidget, object):
+
+    schw = "medium" #anfangseinstellung ist medium
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -57,8 +61,16 @@ class Controller(QWidget):
     def newGame(self):
         #Spiel neu generieren
         self.model.set_schw(self.schw)
-        self.view.schw.setCurrentIndex(self.level) #Anzeigen des SCwhierigkeitsgrads in der Combobox
+        #self.view.schw.setCurrentIndex(self.level) #Anzeigen des SCwhierigkeitsgrads in der Combobox
         self.model.neuAnordnen()    #Anordnen des Feldes
+        #Leeren des Spielfelds
+        for i in range(self.model.anzReihen):
+            for j in range(self.model.anzSpalten):
+                self.view.button[i][j].setStyleSheet("QPushButton {background-color: yellow}")
+
+        self.model.hilfeErstellen() #Hilfestellungen erstellen
+        self.showHelpOben()         #Hilfestellung oben anzeigen
+        self.showHelpRechts()       #Hilfestellung rechts anzeigen
         self.view.textOpenField.setText(str(self.model.get_anzFarbFelder())) #Anzahl der fehlenden anzeigen
 
     def showHelpOben(self):
@@ -75,12 +87,34 @@ class Controller(QWidget):
         for i in range(self.model.anzReihen):
             for j in range(self.model.anzSpalten):
                 if str(self.model.spielfeld[i][j]) == "1":
-                    self.view.button[i][j].setText("1")
+                    self.view.button[i][j].setStyleSheet("QPushButton {background-color: blue}")
                 else:
-                    self.view.button[i][j].setText("0")
+                    self.view.button[i][j].setStyleSheet("QPushButton {background-color: yellow}")
 
     def buttonClicked(self):
-        print("Gedrückt :D")
+        button = self.sender()
+        i = button.x
+        j = button.y
+        if button.aktiviert is False: #wenns nicht aktiviert ist (gelb)
+            button.aktiviert = True
+            button.setStyleSheet("QPushButton {background-color: blue}")
+            if self.model.spielfeld[i][j] is 1:
+                self.model.anzFehlendeFelder -= 1
+                if self.model.anzFehlendeFelder == 0: #falls alle gefunden
+                    print("YEAH GEWONNEN!")
+        else:
+            button.aktiviert = False
+            button.setStyleSheet("QPushButton {background-color: yellow}")
+            if self.model.spielfeld[i][j] is 1:
+                self.model.anzFehlendeFelder += 1
+
+
+        self.view.textOpenField.setText(str(self.model.anzFehlendeFelder)) #Anzahl der fehlenden anzeigen
+
+
+        #print(self.x, self.y, self.objectName())
+
+        #print("Gedrückt :D" + str(i) + str(j))
 
 
 

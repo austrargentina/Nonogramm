@@ -10,8 +10,8 @@ class MyView(object):
 
         Dialog.setObjectName("Nonogram")
         Dialog.setWindowTitle("Nonogram")
-        Dialog.resize(700, 600)
-        Dialog.setMaximumSize(QtCore.QSize(900, 900))
+        Dialog.resize(900, 800)
+        Dialog.setMaximumSize(QtCore.QSize(900, 800))
         #Dialog.setMiniumSize(QtCore.QSize(700,600))
 
         self.horizontalLayoutWidget = QtWidgets.QWidget(Dialog)
@@ -34,7 +34,7 @@ class MyView(object):
         self.textOpenField.setObjectName("textOpenField")
         #self.textOpenField.setAlignment
         self.horizontalLayout.addWidget(self.textOpenField)
-        #
+
         self.loesung = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.loesung.setMaximumSize(QtCore.QSize(150, 30))
         self.loesung.setStyleSheet("")
@@ -84,14 +84,16 @@ class MyView(object):
 
         self.button = []
 
-
-
         for i in range(self.model.anzReihen):
             self.button.append([])
             for j in range(self.model.anzSpalten):
                 self.button[i].append(QtWidgets.QPushButton(self.gridLayoutWidget_3))
                 self.button[i][j].setMaximumSize(QtCore.QSize(30, 30))
-                self.button[i][j].setObjectName("button")
+                self.button[i][j].setObjectName(str(i) + str(j))
+                self.button[i][j].setStyleSheet("QPushButton {background-color: yellow}")
+                self.button[i][j].x = i
+                self.button[i][j].y = j
+                self.button[i][j].aktiviert = False
                 self.gridspielfeld.addWidget(self.button[i][j], i, j, 1, 1)
 
         self.gridLayoutWidget = QtWidgets.QWidget(Dialog)
@@ -119,7 +121,7 @@ class MyView(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Nonogram"))
         self.openFieldsLa.setText(_translate("Dialog", "Felder offen:"))
         self.loesung.setText(_translate("Dialog", "Loesung"))
         self.schw.setItemText(0, _translate("Dialog", "Easy"))
