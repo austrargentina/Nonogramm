@@ -3,7 +3,7 @@ __author__ = 'Daniel'
 import random
 from math import ceil
 
-class Spielfeld():
+class Spielfeld(object):
 
     """
     Ist das gesamte Spielfeld und beinhaltet darber hinaus auch die zwei Hilfestellungen (oben und rechts vom Spielfeld)
@@ -24,6 +24,10 @@ class Spielfeld():
     aktElement = 0 #fuer iteration Ã¼ber spielfeld
 
     def __init__(self):
+        """
+        Anfuellen des Spielfelds
+        :return: Kein return
+        """
         #fuellen des spielfelds mit lauter 0en
         for i in range(self.anzReihen):
                 self.spielfeld.append([])
@@ -40,7 +44,8 @@ class Spielfeld():
     def anzFarbFelderFestlegen(self):
         """
         Je nach Schwierigkeitsgrad wird anzFarbFelder festgelegt
-        :return: -
+
+        :return: Kein Return
         """
         if self.schwGrad is "easy":
             self.anzFarbFelder = ceil(self.anzSpalten*self.anzReihen*0.888) #88% sind farbig

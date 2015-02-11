@@ -47,8 +47,124 @@
             
   <div class="section" id="the-documentation">
 <h1>The Documentation<a class="headerlink" href="#the-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module">
-<h2>Module<a class="headerlink" href="#module" title="Permalink to this headline">¶</a></h2>
+<p>This is the documentation of the implemented classes.</p>
+<div class="section" id="controller">
+<h2>Controller<a class="headerlink" href="#controller" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Controller.Control.Controller">
+<em class="property">class </em><code class="descclassname">Controller.Control.</code><code class="descname">Controller</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="Controller.Control.Controller.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Controller.Control.Controller.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeigt, dass Objekt iterable ist
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Model.Spielfeld">
+<em class="property">class </em><code class="descclassname">Model.</code><code class="descname">Spielfeld</code><a class="headerlink" href="#Model.Spielfeld" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ist das gesamte Spielfeld und beinhaltet darber hinaus auch die zwei Hilfestellungen (oben und rechts vom Spielfeld)</p>
+<dl class="method">
+<dt id="Model.Spielfeld.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeigt, dass Objekt iterable ist
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.__next__">
+<code class="descname">__next__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.__next__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt immer nÃ¤chste Reihe des Spielfelds zurÃ¼ck
+:return:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Model.Spielfeld.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#Model.Spielfeld.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.anzFarbFelderFestlegen">
+<code class="descname">anzFarbFelderFestlegen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.anzFarbFelderFestlegen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Je nach Schwierigkeitsgrad wird anzFarbFelder festgelegt</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Kein Return</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.anzeigen">
+<code class="descname">anzeigen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.anzeigen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt das Spielfeld in der Konsole aus
+:return: -</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Spielfeld.neuAnordnen">
+<code class="descname">neuAnordnen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Spielfeld.neuAnordnen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spielfeld wird neu mit 1en gefÃ¼llt
+:return: -</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Model.Hilfestellung">
+<em class="property">class </em><code class="descclassname">Model.</code><code class="descname">Hilfestellung</code><span class="sig-paren">(</span><em>spielfeld</em>, <em>art</em><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="Model.Hilfestellung.__iter__">
+<code class="descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Zeigt, dass Objekt iterable ist
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Hilfestellung.__next__">
+<code class="descname">__next__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.__next__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt immer nÃ¤chste Reihe des Spielfelds zurÃ¼ck
+:return:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Model.Hilfestellung.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#Model.Hilfestellung.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Model.Hilfestellung.anzeigen">
+<code class="descname">anzeigen</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Model.Hilfestellung.anzeigen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gibt die Hilfestellung in der Konsole aus
+:return: -</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="view">
+<h2>View<a class="headerlink" href="#view" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="View.MyView">
+<em class="property">class </em><code class="descclassname">View.</code><code class="descname">MyView</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#View.MyView" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="View.MyView.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#View.MyView.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -61,7 +177,9 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">The Documentation</a><ul>
-<li><a class="reference internal" href="#module">Module</a></li>
+<li><a class="reference internal" href="#controller">Controller</a></li>
+<li><a class="reference internal" href="#model">Model</a></li>
+<li><a class="reference internal" href="#view">View</a></li>
 </ul>
 </li>
 </ul>

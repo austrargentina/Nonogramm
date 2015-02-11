@@ -1,14 +1,36 @@
 The Documentation
 =================
 
-Module
-------
+This is the documentation of the implemented classes.
 
-.. py 
-.. autoclass:: Module.Spielfeld
+Controller
+----------
+
+.. py:currentmodule:: Controller.Control
+.. autoclass:: Controller
 	:members:
+	:special-members:
+	:private-members:
 
+Model
+-----
+
+.. py:currentmodule:: Model
+.. autoclass:: Spielfeld
+	:members:
+	:special-members:
+	:private-members:
+	
 .. autoclass:: Hilfestellung
-	:members: 
+	:members:
+	:special-members:
+	:private-members:
+	
+View
+----
 
-
+.. py:currentmodule:: View
+.. autoclass:: MyView
+	:members:
+	:special-members:
+	:private-members:

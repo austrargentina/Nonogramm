@@ -11,7 +11,7 @@ class MyView(object):
         Dialog.setObjectName("Nonogram")
         Dialog.setWindowTitle("Nonogram")
         Dialog.resize(700, 600)
-        Dialog.setMaximumSize(QtCore.QSize(900, 800))
+        Dialog.setMaximumSize(QtCore.QSize(900, 900))
         #Dialog.setMiniumSize(QtCore.QSize(700,600))
 
         self.horizontalLayoutWidget = QtWidgets.QWidget(Dialog)
